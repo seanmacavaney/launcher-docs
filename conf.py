@@ -3,7 +3,7 @@ html_title = 'IDA Launcher Docs'
 
 extensions = ['sphinx_tabs.tabs', 'myst_parser']
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'README.md']
 html_theme = 'furo'
 html_static_path = ['_static']
 sphinx_tabs_disable_tab_closing = True
