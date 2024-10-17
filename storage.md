@@ -1,3 +1,0 @@
-# Storage
-
-Documentation coming soon...

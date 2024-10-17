@@ -1,3 +1,0 @@
-# SSH Access
-
-Documentation coming soon...
