@@ -30,6 +30,40 @@ You can connect to your pods with [Visual Studio Code](https://code.visualstudio
 
 ----------------------------------------------------------------------------------------------
 
+## How do I push/pull to GitHub from a pod?
+
+You can push and pull to remote repositories from your pods once you perform the following setup:
+
+**Step 1: Add your pod SSH keys to your GitHub account.**
+
+First, copy your automatically-generated (public) SSH key, which can be found on the home page under "Pod SSH Key":
+
+<img srcset="_static/images/ssh-key.png 3x" />
+
+Then paste this into a new [GitHub SSH Key](https://github.com/settings/keys):
+
+<img srcset="_static/images/github-ssh-key-0.png 4x" />
+
+<img srcset="_static/images/github-ssh-key-1.png 4x" />
+
+
+**Step 2: Configure your local git settings.**
+
+Launch a pod that runs the following script (filling in your email address and name accordingly).
+
+```bash
+echo 'git config --global user.email "my-email-address@somewhere.com"' >> ~/nfs/launcher-start.sh
+echo 'git config --global user.name "My Name"' >> ~/nfs/launcher-start.sh
+```
+
+These options configure `git` to set your name and email address on commits you make.
+
+**All set!**
+
+New pods that you launch will now be able to push and pull from your GitHub repositories.
+
+----------------------------------------------------------------------------------------------
+
 ## How can I copy files to/from my pod?
 
 You'll often need to copy files (code, results, figures, etc.) between your local machine and the IDA cluster.
