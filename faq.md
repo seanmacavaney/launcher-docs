@@ -85,6 +85,12 @@ Meanwhile, files copied elsewhere will be lost when the pod is restarted, but ar
 
 ----------------------------------------------------------------------------------------------
 
+## How do I automaticaly run a script each time a pod starts?
+
+Your `~/nfs/launcher-start.sh` script will automatically run each time a pod is launched.
+
+----------------------------------------------------------------------------------------------
+
 ## (Advanced) How can I connect to a service on my pod?
 
 Sometimes you may need to connect to a service that's running on your pod. For instance,
