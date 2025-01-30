@@ -30,6 +30,29 @@ You can connect to your pods with [Visual Studio Code](https://code.visualstudio
 
 ----------------------------------------------------------------------------------------------
 
+## How do I connect to my pod with JetBrains IDEs?
+
+You can connect to your pods with [JetBrains](https://www.jetbrains.com/) by following these steps:
+
+**Step 1:** (First time only) Configure SSH access.
+
+**Step 2:** (First time only) Ensure you have the Remote Development Gateway plugin enabled.
+
+**Step 3:** On the welcome screen, select "Remote Development" or go to "File | Remote Development" in the main menu.
+
+**Step 4:** Under SSH Connection, click New Connection
+
+**Step 5:** Specify the remote server connection parameters with:
+- Username: `root`
+- Host: `[pod-name].ida`
+- Tick Specify private key and navigate to the file where the private key is located. Usually is `home/USER/.ssh/id_*******`
+
+**Step 6:** Choose IDE you wish to use and select your project directory
+
+**Step 7:** Download and start IDE
+
+----------------------------------------------------------------------------------------------
+
 ## How do I push/pull to GitHub from a pod?
 
 You can push and pull to remote repositories from your pods once you perform the following setup:
