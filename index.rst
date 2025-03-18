@@ -8,6 +8,7 @@ IDA Launcher Documentation
    :maxdepth: 1
 
    faq
+   hardware
 
 .. toctree::
    :maxdepth: 1
