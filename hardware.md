@@ -21,6 +21,10 @@ All nodes have multiple GPUs, each of which provide trade-offs in terms of speed
 | GPU Model | Memory | Clock Speed | Relative Speed (approx) |
 |-----------|--------|-------------|-------------------------|
 | `titan`   | 24 GB  |  837 MHz    | 0.42                    |
+| `a5000`   | 24 GB  | 1170 MHz    | 0.51                    |
 | `3090`    | 24 GB  | 1395 MHz    | 0.60                    |
 | `4090`    | 24 GB  | 2235 MHz    | 0.86                    |
+| `5000ada` | 32 GB  | 1155 MHz    | 0.69                    |
 | `a6000`   | 48 GB  | 1410 MHz    | 0.51                    |
+
+<!-- Relative Speeds from: https://technical.city/en/video/Quadro-RTX-A6000-vs-RTX-A5000 -->
