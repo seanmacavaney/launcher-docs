@@ -6,6 +6,8 @@ This page provides information about the various hardware provided on the cluste
 
 The specification of each node's CPU depends on what was available when the node was added to the cluster.
 
+When selecting a pod to launch, you can select the number of dedicated cores with the size (xs-xxl).
+
 | CPU Model      | Vendor | Number of Cores | Clock Speed |
 |----------------|--------|-----------------|-------------|
 | `xeon-5222`    | Intel  | 16              | 3.8 GHz     |
@@ -17,6 +19,8 @@ The specification of each node's CPU depends on what was available when the node
 ## GPUs
 
 All nodes have multiple GPUs, each of which provide trade-offs in terms of speed and memory capacity.
+
+When selecting a pod to launch, you can specify the GPU you want.
 
 | GPU Model | Memory | Clock Speed | Relative Speed (approx) |
 |-----------|--------|-------------|-------------------------|
