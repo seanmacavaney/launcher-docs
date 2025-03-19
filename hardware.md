@@ -9,7 +9,7 @@ the "size" of the pod (xs-xxl). Try to select a size that is appropriate for you
 are enough resources for everybody.
 
 | Size                      | CPU Cores    | Memory     |
-|---------------------------|--------------|------------|
+|---------------------------|-------------:|-----------:|
 | `xs` (Extra-Small)        |  1 CPU Core  |   1 GB RAM |
 | `sm` (Small)              |  2 CPU Cores |   8 GB RAM |
 | `md` (Medium)             |  2 CPU Cores |  16 GB RAM |
@@ -24,7 +24,7 @@ CPU your pod has access to by checking the [Cluster Usage Dashboard](http://usag
 
 
 | CPU Model      | Vendor | Number of Cores | Clock Speed |
-|----------------|--------|-----------------|-------------|
+|----------------|--------|----------------:|------------:|
 | `xeon-5222`    | Intel  | 16              | 3.8 GHz     |
 | `ryzen-3975wx` | AMD    | 64              | 3.5 GHz     |
 | `ryzen-3955wx` | AMD    | 32              | 3.9 GHz     |
@@ -36,14 +36,14 @@ CPU your pod has access to by checking the [Cluster Usage Dashboard](http://usag
 You can request a GPU with your pod, which can accelerate certain workloads. Each GPU has trade-offs
 in terms of speed and memory capacity.
 
-| GPU Model | Memory | Clock Speed | Relative Speed (approx) |
-|-----------|--------|-------------|-------------------------|
-| `titan`   | 24 GB  |  837 MHz    | 0.42                    |
-| `a5000`   | 24 GB  | 1170 MHz    | 0.51                    |
-| `3090`    | 24 GB  | 1395 MHz    | 0.60                    |
-| `4090`    | 24 GB  | 2235 MHz    | 0.86                    |
-| `5000ada` | 32 GB  | 1155 MHz    | 0.69                    |
-| `a6000`   | 48 GB  | 1410 MHz    | 0.51                    |
+| GPU Model | Memory | Clock Speed | CUDA Cores | Tensor Cores    | Relative Speed (approx) |
+|-----------|-------:|------------:|-----------:|----------------:|------------------------:|
+| `titan`   | 24 GB  |  837 MHz    |  4,608     | 576             | 0.42                    |
+| `a5000`   | 24 GB  | 1170 MHz    |  8,192     | 256             | 0.51                    |
+| `3090`    | 24 GB  | 1395 MHz    | 10,496     |  92             | 0.60                    |
+| `4090`    | 24 GB  | 2235 MHz    | 16,384     | 512             | 0.86                    |
+| `5000ada` | 32 GB  | 1155 MHz    | 12,800     | 400             | 0.69                    |
+| `a6000`   | 48 GB  | 1410 MHz    | 10,752     |  84             | 0.51                    |
 
 You can request multiple GPUs under "Advanced Options". However, it can be difficult to use multiple
 GPUs effectively, so please carefully check that both GPUs are in use when you request multiple.
