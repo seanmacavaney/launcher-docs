@@ -26,6 +26,8 @@ CPU your pod has access to by checking the [Cluster Usage Dashboard](http://usag
 | CPU Model      | Vendor | Number of Cores | Clock Speed |
 |----------------|--------|----------------:|------------:|
 | `xeon-5222`    | Intel  | 16              | 3.8 GHz     |
+| `xeon-6338`    | Intel  | 32              | 2.0 GHz     |
+| `xeon-2697a`   | Intel  | 32              | 2.6 GHz     |
 | `ryzen-3975wx` | AMD    | 64              | 3.5 GHz     |
 | `ryzen-3955wx` | AMD    | 32              | 3.9 GHz     |
 | `ryzen-5965wx` | AMD    | 64              | 3.8 GHz     |
@@ -38,12 +40,14 @@ in terms of speed and memory capacity.
 
 | GPU Model | Memory | Clock Speed | CUDA Cores | Tensor Cores    | Relative Speed (approx) |
 |-----------|-------:|------------:|-----------:|----------------:|------------------------:|
-| `titan`   | 24 GB  |  837 MHz    |  4,608     | 576             | 0.42                    |
-| `a5000`   | 24 GB  | 1170 MHz    |  8,192     | 256             | 0.51                    |
-| `3090`    | 24 GB  | 1395 MHz    | 10,496     |  92             | 0.60                    |
-| `4090`    | 24 GB  | 2235 MHz    | 16,384     | 512             | 0.86                    |
-| `5000ada` | 32 GB  | 1155 MHz    | 12,800     | 400             | 0.69                    |
-| `a6000`   | 48 GB  | 1410 MHz    | 10,752     |  84             | 0.51                    |
+| `1080ti`  |  11 GB |    1480 MHz |      3,584 |               0 |                    0.44 |
+| `2080ti`  |  11 GB |    1350 MHz |      4,352 |             544 |                    0.51 |
+| `titan`   |  24 GB |     837 MHz |      4,608 |             576 |                    0.42 |
+| `a5000`   |  24 GB |    1170 MHz |      8,192 |             256 |                    0.51 |
+| `3090`    |  24 GB |    1395 MHz |     10,496 |              92 |                    0.60 |
+| `4090`    |  24 GB |    2235 MHz |     16,384 |             512 |                    0.86 |
+| `5000ada` |  32 GB |    1155 MHz |     12,800 |             400 |                    0.69 |
+| `a6000`   |  48 GB |    1410 MHz |     10,752 |              84 |                    0.51 |
 
 You can request multiple GPUs under "Advanced Options". However, it can be difficult to use multiple
 GPUs effectively, so please carefully check that both GPUs are in use when you request multiple.
