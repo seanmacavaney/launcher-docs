@@ -1,5 +1,5 @@
-project = 'IDA Launcher'
-html_title = 'IDA Launcher Docs'
+project = 'Launcher'
+html_title = 'Launcher Docs'
 
 extensions = ['sphinx_tabs.tabs', 'myst_parser']
 templates_path = ['_templates']

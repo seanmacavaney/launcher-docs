@@ -1,7 +1,7 @@
-IDA Launcher Documentation
+Launcher Documentation
 ---------------------------------------------------
 
-`IDA Launcher <http://launcher.ida.dcs.gla.ac.uk/>`_ is a tool that lets you create and run jobs on Glasgow's IDA Cluster.
+`Launcher <http://launcher.apps.os.dcs.gla.ac.uk/>`_ is a tool that lets you create and run jobs on Glasgow's IDA Cluster.
 **We intend to build up this documentation over time.**
 
 .. toctree::
