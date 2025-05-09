@@ -38,18 +38,104 @@ CPU your pod has access to by checking the [Cluster Usage Dashboard](http://usag
 You can request a GPU with your pod, which can accelerate certain workloads. Each GPU has trade-offs
 in terms of speed and memory capacity.
 
-| GPU Model | Memory | Clock Speed | CUDA Cores | Tensor Cores    | Relative Speed (approx) |
-|-----------|-------:|------------:|-----------:|----------------:|------------------------:|
-| `1080ti`  |  11 GB |    1480 MHz |      3,584 |               0 |                    0.44 |
-| `2080ti`  |  11 GB |    1350 MHz |      4,352 |             544 |                    0.51 |
-| `titan`   |  24 GB |     837 MHz |      4,608 |             576 |                    0.42 |
-| `a5000`   |  24 GB |    1170 MHz |      8,192 |             256 |                    0.51 |
-| `3090`    |  24 GB |    1395 MHz |     10,496 |              92 |                    0.60 |
-| `4090`    |  24 GB |    2235 MHz |     16,384 |             512 |                    0.86 |
-| `5000ada` |  32 GB |    1155 MHz |     12,800 |             400 |                    0.69 |
-| `a6000`   |  48 GB |    1410 MHz |     10,752 |              84 |                    0.51 |
+| GPU Model |    Memory | Relative Speed | Tensor Cores | CUDA Cores | Base Clock | Boost Clock |
+|-----------|----------:|---------------:|-------------:|-----------:|-----------:|------------:|
+| `1080ti`  | **11 GB** |       **0.82** |            0 |      3,584 |   1480 MHz |    1582 MHz |
+| `2080ti`  | **11 GB** |       **?.??** |          544 |      4,352 |   1350 MHz |    1545 MHz |
+| `3090`    | **24 GB** |       **2.42** |          328 |     10,496 |   1395 MHz |    1695 MHz |
+| `titan`   | **24 GB** |       **2.69** |          576 |      4,608 |   1350 MHz |    1770 MHz |
+| `a5000`   | **24 GB** |       **3.02** |          256 |      8,192 |   1170 MHz |    1695 MHz |
+| `4090`    | **24 GB** |       **5.57** |          512 |     16,384 |   2235 MHz |    2520 MHz |
+| `5000ada` | **32 GB** |       **3.77** |          400 |     12,800 |   1155 MHz |    2550 MHz |
+| `a6000`   | **48 GB** |       **3.05** |          336 |     10,752 |   1410 MHz |    1860 MHz |
+
+<!--
+| `5090`    | **32 GB** |       **?.??** |          512 |     16,384 |   2010 MHz |    2410 MHz |
+| `6000blk` | **96 GB** |       **?.??** |          752 |     24,064 |   1590 MHz |    2617 MHz |
+-->
+
+ - **Memory** is the amount of memory available on the GPU. This is important for large models, as
+   they may not fit into the memory of smaller GPUs. Note that the GPU's memory is separate from the
+   CPU's memory.
+ - **Relative Speed** is an estimate of the speed of the GPU. The value is estimated using a benchmark
+   of forward and backward passes over a transformer network at various batch sizes and sequence lengths.
+   This represnts a typical use case for text processing, but may not be representative of other workloads.
+ - **Tensor Cores** are specialized cores designed to accelerate deep learning tasks. They are particularly
+   useful for matrix operations, which are common in deep learning workloads.
+ - **CUDA Cores** are the general-purpose parallel processing units on the GPU. A higher number of
+   CUDA cores generally means more parallel processing power.
+ - **Base Clock** the minimum guaranteed speed that the GPU will run at under normal conditions. It’s the
+   baseline performance level the card should maintain without overheating or drawing too much power.
+ - **Boost Clock** the maximum speed the GPU can temporarily reach under optimal conditions, such as
+   sufficient cooling and available power. It’s not always sustained and varies depending on workload,
+   temperature, and power limits.
 
 You can request multiple GPUs under "Advanced Options". However, it can be difficult to use multiple
 GPUs effectively, so please carefully check that both GPUs are in use when you request multiple.
 
-<!-- Relative Speeds from: https://technical.city/en/video/Quadro-RTX-A6000-vs-RTX-A5000 -->
+<!--
+Relative speeds using <https://github.com/seanmacavaney/gpu-benchmark>
+
+1080ti
+    Pod : shy-butterfly-52
+    Timestamp : 2025-05-06T13:39:30.384809
+    Pytorch version : 2.5.1+cu124
+    CUDA version : 12.4
+    Transformers version : 4.47.1
+    GPU : NVIDIA GeForce GTX 1080 Ti
+    0.82
+
+3090
+    Pod : joyous-snake-29
+    Timestamp : 2025-05-06T13:40:02.352003
+    Pytorch version : 2.5.1+cu124
+    CUDA version : 12.4
+    Transformers version : 4.47.1
+    GPU : NVIDIA GeForce RTX 3090
+    2.42
+
+titan
+    Pod : good-jaguar-21
+    Timestamp : 2025-05-06T13:39:44.452430
+    Pytorch version : 2.5.1+cu124
+    CUDA version : 12.4
+    Transformers version : 4.47.1
+    GPU : NVIDIA TITAN RTX
+    2.69
+
+4090
+    Pod : nutty-bat-19
+    Timestamp : 2025-05-06T14:00:50.318387
+    Pytorch version : 2.5.1+cu124
+    CUDA version : 12.4
+    Transformers version : 4.47.1
+    GPU : NVIDIA GeForce RTX 4090
+    5.57
+
+5000ada
+    Pod : annoying-goat-10
+    Timestamp : 2025-05-06T16:46:56.506455
+    Pytorch version : 2.5.1+cu124
+    CUDA version : 12.4
+    Transformers version : 4.47.1
+    GPU : NVIDIA RTX 5000 Ada Generation
+    3.77
+
+a6000
+    Pod : mysterious-frog-79
+    Timestamp : 2025-05-07T04:41:00.165299
+    Pytorch version : 2.5.1+cu124
+    CUDA version : 12.4
+    Transformers version : 4.47.1
+    GPU : NVIDIA RTX A6000
+    3.05
+
+a5000
+    Pod : talented-hawk-22
+    Timestamp : 2025-05-09T15:35:06.434332
+    Pytorch version : 2.5.1+cu124
+    CUDA version : 12.4
+    Transformers version : 4.47.1
+    GPU : NVIDIA RTX A5000
+    3.02
+-->
