@@ -19,7 +19,7 @@ are enough resources for everybody.
 
 
 Each node's CPU model depends on what was available when the node was added to the cluster. You can check which
-CPU your pod has access to by checking the [Cluster Usage Dashboard](http://usage.ida.dcs.gla.ac.uk/) or by running
+CPU your pod has access to by checking the [Cluster Usage Dashboard](http://usage.apps.os.dcs.gla.ac.uk/) or by running
 `cat /proc/cpuinfo | grep "model name" | head -1`. Below is a list of the CPUs currently on the cluster.
 
 

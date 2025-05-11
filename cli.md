@@ -1,5 +1,9 @@
 # Launcher CLI
 
+<div class="alert alert-warning">
+  The CLI is still being ported over to the new cluster. Please use the web GUI for now.
+</div>
+
 The Launcher Command Line Interface (CLI) allows you to run launcher commands without the web GUI.
 
 ## Getting Started

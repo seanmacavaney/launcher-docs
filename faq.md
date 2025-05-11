@@ -24,7 +24,7 @@ You can connect to your pods with [Visual Studio Code](https://code.visualstudio
 
 **Step 3:** Launch a pod.
 
-**Step 4:** Run "Connect to Host" in VS Code. When prompted, specify your pod as `[pod_name].ida` (e.g., `awesome-coo-23.ida`).
+**Step 4:** Run "Connect to Host" in VS Code. When prompted, specify your pod as `[pod_name].os` (e.g., `awesome-coo-23.os`).
 
 <img srcset="_static/images/vscode-connect-to-host.png 2x" />
 
@@ -44,7 +44,7 @@ You can connect to your pods with [JetBrains](https://www.jetbrains.com/) by fol
 
 **Step 5:** Specify the remote server connection parameters with:
 - Username: `root`
-- Host: `[pod-name].ida`
+- Host: `[pod-name].os`
 - Tick Specify private key and navigate to the file where the private key is located. Usually is `home/USER/.ssh/id_*******`
 
 **Step 6:** Choose IDE you wish to use and select your project directory
@@ -91,16 +91,16 @@ New pods that you launch will now be able to push and pull from your GitHub repo
 
 You'll often need to copy files (code, results, figures, etc.) between your local machine and the IDA cluster.
 You can do this using tools like [`scp`](https://linux.die.net/man/1/scp) and [`rsync`](https://linux.die.net/man/1/rsync) once you configure SSH access. You should specify the server
-as `[pod_name].ida`. Example for a single file using `scp`:
+as `[pod_name].os`. Example for a single file using `scp`:
 
 ```bash
-scp my_file.py awesome-coo-23.ida:nfs/my_file.py
+scp my_file.py awesome-coo-23.os:nfs/my_file.py
 ```
 
 Example for a directry using `rsync`:
 
 ```bash
-rsync -rlz my_project/ awesome-coo-23.ida:nfs/my_project/
+rsync -rlz my_project/ awesome-coo-23.os:nfs/my_project/
 ```
 
 Remember that files copied to NFS directories will be persisted across pods (but have slower access times).
@@ -122,7 +122,7 @@ training progress of a neural network. You can connect to these services using S
 
 **Step 1:** (First time only) Configure SSH access.
 
-**Step 2:** Run `ssh [pod_name].ida  -N -L [local_port]:localhost:[remote_port]`
+**Step 2:** Run `ssh [pod_name].os  -N -L [local_port]:localhost:[remote_port]`
 
  - `[pod_name]` is the name of your running pod
  - `[remote_port]` is the port number that is running the service on your pod
