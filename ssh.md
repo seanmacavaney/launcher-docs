@@ -18,6 +18,10 @@ First follow the provided instructions. If you run into problems, try the troubl
 
 ## Troubleshooting SSH Access
 
+**Are you a Windows user?** SSH access is only available in [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux)
+for now. Start by installing and running a distribution (e.g. Ubuntu) using the `wsl` command. 
+Then follow the instructions in the "SSH Access" panel.
+
 **Make sure ssh is installed on your machine.** Try running the command `ssh --version` from your terminal.
 If you see an error message, install SSH using your package manager. For example, on Ubuntu you can run:
 
