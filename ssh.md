@@ -52,3 +52,6 @@ ls ~/.ssh/id_*.pub
 
 If you see a file named `id_rsa.pub` or `id_ed25519.pub`, you have an SSH key. If not, follow
 [GitHub's Guide on Generating a new SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key).
+
+**Check your ssh config file.** You should only have one `*.os` record in your `~/.ssh/config` file. If you have
+multiple, delete them and re-run the commands provided in the "SSH Access" panel in Launcher.
