@@ -55,3 +55,5 @@ If you see a file named `id_rsa.pub` or `id_ed25519.pub`, you have an SSH key. I
 
 **Check your ssh config file.** You should only have one `*.os` record in your `~/.ssh/config` file. If you have
 multiple, delete them and re-run the commands provided in the "SSH Access" panel in Launcher.
+
+**If you're getting a permission denied error:** Check that the SSH public key that you entered is correct.
