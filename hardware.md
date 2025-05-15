@@ -22,36 +22,36 @@ Each node's CPU model depends on what was available when the node was added to t
 CPU your pod has access to by checking the [Cluster Usage Dashboard](http://usage.apps.os.dcs.gla.ac.uk/) or by running
 `cat /proc/cpuinfo | grep "model name" | head -1`. Below is a list of the CPUs currently on the cluster.
 
-
-| CPU Model      | Vendor | Number of Cores | Clock Speed |
-|----------------|--------|----------------:|------------:|
-| `xeon-5222`    | Intel  | 16              | 3.8 GHz     |
-| `xeon-6338`    | Intel  | 32              | 2.0 GHz     |
-| `xeon-2697a`   | Intel  | 32              | 2.6 GHz     |
-| `ryzen-3975wx` | AMD    | 64              | 3.5 GHz     |
-| `ryzen-3955wx` | AMD    | 32              | 3.9 GHz     |
-| `ryzen-5965wx` | AMD    | 64              | 3.8 GHz     |
-| `ryzen-7950x`  | AMD    | 32              | 4.5 GHz     |
+| Model          | Vendor | Base Clock  | Boost Clock | Threads | Year |
+|----------------|--------|------------:|------------:|--------:|-----:|
+| `xeon-2620`    | Intel  | **2.1 GHz** |     3.0 GHz |      32 | 2016 |
+| `ryzen-3975wx` | AMD    | **3.5 GHz** |     4.7 GHz |      64 | 2020 |
+| `xeon-6244`    | Intel  | **3.6 GHz** |     4.4 GHz |      32 | 2019 |
+| `xeon-5222`    | Intel  | **3.8 GHz** |     3.9 GHz |      16 | 2019 |
+| `ryzen-5965wx` | AMD    | **3.8 GHz** |     4.5 GHz |      48 | 2022 |
+| `ryzen-3955wx` | AMD    | **3.9 GHz** |     4.3 GHz |      32 | 2020 |
+| `ryzen-5955wx` | AMD    | **4.0 GHz** |     4.5 GHz |      32 | 2022 |
+| `ryzen-7950x`  | AMD    | **4.5 GHz** |     5.7 GHz |      32 | 2022 |
 
 ## GPU
 
 You can request a GPU with your pod, which can accelerate certain workloads. Each GPU has trade-offs
 in terms of speed and memory capacity.
 
-| GPU Model |    Memory | Relative Speed | Tensor Cores | CUDA Cores | Base Clock | Boost Clock |
-|-----------|----------:|---------------:|-------------:|-----------:|-----------:|------------:|
-| `1080ti`  | **11 GB** |       **0.82** |            0 |      3,584 |   1480 MHz |    1582 MHz |
-| `2080ti`  | **11 GB** |       **?.??** |          544 |      4,352 |   1350 MHz |    1545 MHz |
-| `3090`    | **24 GB** |       **2.42** |          328 |     10,496 |   1395 MHz |    1695 MHz |
-| `titan`   | **24 GB** |       **2.69** |          576 |      4,608 |   1350 MHz |    1770 MHz |
-| `a5000`   | **24 GB** |       **3.02** |          256 |      8,192 |   1170 MHz |    1695 MHz |
-| `4090`    | **24 GB** |       **5.57** |          512 |     16,384 |   2235 MHz |    2520 MHz |
-| `5000ada` | **32 GB** |       **3.77** |          400 |     12,800 |   1155 MHz |    2550 MHz |
-| `a6000`   | **48 GB** |       **3.05** |          336 |     10,752 |   1410 MHz |    1860 MHz |
+| GPU Model |    Memory | Relative Speed | Tensor Cores | CUDA Cores | Base Clock | Boost Clock | Year |
+|-----------|----------:|---------------:|-------------:|-----------:|-----------:|------------:|-----:|
+| `1080ti`  | **11 GB** |       **0.82** |            0 |      3,584 |   1480 MHz |    1582 MHz | 2017 |
+| `3090`    | **24 GB** |       **2.42** |          328 |     10,496 |   1395 MHz |    1695 MHz | 2020 |
+| `titan`   | **24 GB** |       **2.69** |          576 |      4,608 |   1350 MHz |    1770 MHz | 2018 |
+| `a5000`   | **24 GB** |       **3.02** |          256 |      8,192 |   1170 MHz |    1695 MHz | 2021 |
+| `4090`    | **24 GB** |       **5.57** |          512 |     16,384 |   2235 MHz |    2520 MHz | 2022 |
+| `5000ada` | **32 GB** |       **3.77** |          400 |     12,800 |   1155 MHz |    2550 MHz | 2023 |
+| `a6000`   | **48 GB** |       **3.05** |          336 |     10,752 |   1410 MHz |    1860 MHz | 2020 |
 
 <!--
-| `5090`    | **32 GB** |       **?.??** |          512 |     16,384 |   2010 MHz |    2410 MHz |
-| `6000blk` | **96 GB** |       **?.??** |          752 |     24,064 |   1590 MHz |    2617 MHz |
+| `2080ti`  | **11 GB** |       **?.??** |          544 |      4,352 |   1350 MHz |    1545 MHz | 2018 |
+| `5090`    | **32 GB** |       **?.??** |          512 |     16,384 |   2010 MHz |    2410 MHz | 2025 |
+| `6000bw`  | **96 GB** |       **?.??** |          752 |     24,064 |   1590 MHz |    2617 MHz | 2025 |
 -->
 
  - **Memory** is the amount of memory available on the GPU. This is important for large models, as
