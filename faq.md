@@ -97,7 +97,7 @@ as `[pod_name].os`. Example for a single file using `scp`:
 scp my_file.py awesome-coo-23.os:nfs/my_file.py
 ```
 
-Example for a directry using `rsync`:
+Example for a directory using `rsync`:
 
 ```bash
 rsync -rlz my_project/ awesome-coo-23.os:nfs/my_project/

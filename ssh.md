@@ -16,6 +16,11 @@ Launcher provides a step-by-step guide to configure SSH access to your pod under
 
 First follow the provided instructions. If you run into problems, try the troubleshooting steps below.
 
+.. note:: 
+
+   Changes to your SSH configuration will only take effect on new pods.
+
+
 ## Troubleshooting SSH Access
 
 **Are you a Windows user?** SSH access is only available in [WSL](https://en.wikipedia.org/wiki/Windows_Subsystem_for_Linux)
