@@ -87,6 +87,22 @@ New pods that you launch will now be able to push and pull from your GitHub repo
 
 ----------------------------------------------------------------------------------------------
 
+## How do connect my HuggingFace account?
+
+1. Create a new HuggingFace access token [here](https://huggingface.co/settings/tokens/new?tokenType=write).
+2. Add `HF_TOKEN=your_token_goes_here` to your Global Envirionment variables on the Launcher main page.
+3. New pods you launch will have access to your HuggingFace account.
+
+----------------------------------------------------------------------------------------------
+
+## How do connect my Weights and Biases account?
+
+1. Copy your Weights and Biases API ke from [here](https://wandb.ai/authorize).
+2. Add `WANDB_API_KEY=your_api_key_goes_here` to your Global Envirionment variables on the Launcher main page.
+3. New pods you launch will have access to your Weights and Biases account.
+
+----------------------------------------------------------------------------------------------
+
 ## How can I copy files to/from my pod?
 
 You'll often need to copy files (code, results, figures, etc.) between your local machine and the IDA cluster.
