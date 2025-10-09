@@ -13,7 +13,7 @@ in terms of speed and memory capacity.
 | `titan`   | **24 GB** |       **1.28** |          576 |      4,608 |    1.3 GHz |     1.7 GHz | 2018 |
 | `a5000`   | **24 GB** |       **1.37** |          256 |      8,192 |    1.1 GHz |     1.6 GHz | 2021 |
 | `3090`    | **24 GB** |       **1.39** |          328 |     10,496 |    1.3 GHz |     1.6 GHz | 2020 |
-| `4090`    | **24 GB** |       **?.??** |          512 |     16,384 |    2.2 GHz |     2.5 GHz | 2022 |
+| `4090`    | **24 GB** |       **2.36** |          512 |     16,384 |    2.2 GHz |     2.5 GHz | 2022 |
 | `5000ada` | **32 GB** |       **?.??** |          400 |     12,800 |    1.1 GHz |     2.5 GHz | 2023 |
 | `a6000`   | **48 GB** |       **1.65** |          336 |     10,752 |    1.4 GHz |     1.8 GHz | 2020 |
 
@@ -80,6 +80,15 @@ a5000
     Transformers version    : 4.51.3
     GPU                     : NVIDIA GeForce RTX 3090
     1.39
+
+4090
+    Pod                     : N/A
+    Timestamp               : 2025-10-09T11:59:32.742480
+    Pytorch version         : 2.5.1+cu124
+    CUDA version            : 12.4
+    Transformers version    : 4.48.0
+    GPU                     : NVIDIA GeForce RTX 4090
+    2.36
 
 a6000
     Pod                     : tame-ostrich-11
