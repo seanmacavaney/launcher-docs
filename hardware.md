@@ -2,37 +2,6 @@
 
 This page provides information about the various hardware provided on the cluster.
 
-## CPU and Memory
-
-When selecting a pod to launch, you can select the amount of CPU and Memory resoures allocated to your pod through
-the "size" of the pod (xs-xxl). Try to select a size that is appropriate for your workload to ensure that there
-are enough resources for everybody.
-
-| Size                      | CPU Cores    | Memory     |
-|---------------------------|-------------:|-----------:|
-| `xs` (Extra-Small)        |  1 CPU Core  |   1 GB RAM |
-| `sm` (Small)              |  2 CPU Cores |   8 GB RAM |
-| `md` (Medium)             |  2 CPU Cores |  16 GB RAM |
-| `lg` (Large)              |  4 CPU Cores |  32 GB RAM |
-| `xl` (Extra-Large)        |  8 CPU Cores |  64 GB RAM |
-| `xxl` (Extra-Extra-Large) | 16 CPU Cores | 128 GB RAM |
-
-
-Each node's CPU model depends on what was available when the node was added to the cluster. You can check which
-CPU your pod has access to by checking the [Cluster Usage Dashboard](http://usage.apps.os.dcs.gla.ac.uk/) or by running
-`cat /proc/cpuinfo | grep "model name" | head -1`. Below is a list of the CPUs currently on the cluster.
-
-| Model          | Vendor | Base Clock  | Boost Clock | Threads | Year |
-|----------------|--------|------------:|------------:|--------:|-----:|
-| `xeon-2620`    | Intel  | **2.1 GHz** |     3.0 GHz |      32 | 2016 |
-| `ryzen-3975wx` | AMD    | **3.5 GHz** |     4.7 GHz |      64 | 2020 |
-| `xeon-6244`    | Intel  | **3.6 GHz** |     4.4 GHz |      32 | 2019 |
-| `xeon-5222`    | Intel  | **3.8 GHz** |     3.9 GHz |      16 | 2019 |
-| `ryzen-5965wx` | AMD    | **3.8 GHz** |     4.5 GHz |      48 | 2022 |
-| `ryzen-3955wx` | AMD    | **3.9 GHz** |     4.3 GHz |      32 | 2020 |
-| `ryzen-5955wx` | AMD    | **4.0 GHz** |     4.5 GHz |      32 | 2022 |
-| `ryzen-7950x`  | AMD    | **4.5 GHz** |     5.7 GHz |      32 | 2022 |
-
 ## GPU
 
 You can request a GPU with your pod, which can accelerate certain workloads. Each GPU has trade-offs
@@ -40,13 +9,13 @@ in terms of speed and memory capacity.
 
 | GPU Model |    Memory | Relative Speed | Tensor Cores | CUDA Cores | Base Clock | Boost Clock | Year |
 |-----------|----------:|---------------:|-------------:|-----------:|-----------:|------------:|-----:|
-| `1080ti`  | **11 GB** |       **0.82** |            0 |      3,584 |    1.4 GHz |     1.5 GHz | 2017 |
-| `3090`    | **24 GB** |       **2.42** |          328 |     10,496 |    1.3 GHz |     1.6 GHz | 2020 |
-| `titan`   | **24 GB** |       **2.69** |          576 |      4,608 |    1.3 GHz |     1.7 GHz | 2018 |
-| `a5000`   | **24 GB** |       **3.02** |          256 |      8,192 |    1.1 GHz |     1.6 GHz | 2021 |
-| `4090`    | **24 GB** |       **5.57** |          512 |     16,384 |    2.2 GHz |     2.5 GHz | 2022 |
-| `5000ada` | **32 GB** |       **3.77** |          400 |     12,800 |    1.1 GHz |     2.5 GHz | 2023 |
-| `a6000`   | **48 GB** |       **3.05** |          336 |     10,752 |    1.4 GHz |     1.8 GHz | 2020 |
+| `1080ti`  | **11 GB** |       **0.21** |            0 |      3,584 |    1.4 GHz |     1.5 GHz | 2017 |
+| `titan`   | **24 GB** |       **1.28** |          576 |      4,608 |    1.3 GHz |     1.7 GHz | 2018 |
+| `3090`    | **24 GB** |       **1.39** |          328 |     10,496 |    1.3 GHz |     1.6 GHz | 2020 |
+| `a5000`   | **24 GB** |       **1.37** |          256 |      8,192 |    1.1 GHz |     1.6 GHz | 2021 |
+| `4090`    | **24 GB** |       **?.??** |          512 |     16,384 |    2.2 GHz |     2.5 GHz | 2022 |
+| `5000ada` | **32 GB** |       **?.??** |          400 |     12,800 |    1.1 GHz |     2.5 GHz | 2023 |
+| `a6000`   | **48 GB** |       **1.65** |          336 |     10,752 |    1.4 GHz |     1.8 GHz | 2020 |
 
 <!--
 | `2080ti`  | **11 GB** |       **?.??** |          544 |      4,352 |   1350 MHz |    1545 MHz | 2018 |
@@ -77,65 +46,79 @@ GPUs effectively, so please carefully check that both GPUs are in use when you r
 Relative speeds using <https://github.com/seanmacavaney/gpu-benchmark>
 
 1080ti
-    Pod : shy-butterfly-52
-    Timestamp : 2025-05-06T13:39:30.384809
-    Pytorch version : 2.5.1+cu124
-    CUDA version : 12.4
-    Transformers version : 4.47.1
-    GPU : NVIDIA GeForce GTX 1080 Ti
-    0.82
-
-3090
-    Pod : joyous-snake-29
-    Timestamp : 2025-05-06T13:40:02.352003
-    Pytorch version : 2.5.1+cu124
-    CUDA version : 12.4
-    Transformers version : 4.47.1
-    GPU : NVIDIA GeForce RTX 3090
-    2.42
+    Pod                     : smiling-crow-98
+    Timestamp               : 2025-10-09T11:51:35.421524
+    Pytorch version         : 2.6.0+cu124
+    CUDA version            : 12.4
+    Transformers version    : 4.51.3
+    GPU                     : NVIDIA GeForce GTX 1080 Ti
+    0.21
 
 titan
-    Pod : good-jaguar-21
-    Timestamp : 2025-05-06T13:39:44.452430
-    Pytorch version : 2.5.1+cu124
-    CUDA version : 12.4
-    Transformers version : 4.47.1
-    GPU : NVIDIA TITAN RTX
-    2.69
+    Pod                     : grotesque-wombat-81
+    Timestamp               : 2025-10-09T11:51:28.654079
+    Pytorch version         : 2.6.0+cu124
+    CUDA version            : 12.4
+    Transformers version    : 4.51.3
+    GPU                     : NVIDIA TITAN RTX
+    1.28
 
-4090
-    Pod : nutty-bat-19
-    Timestamp : 2025-05-06T14:00:50.318387
-    Pytorch version : 2.5.1+cu124
-    CUDA version : 12.4
-    Transformers version : 4.47.1
-    GPU : NVIDIA GeForce RTX 4090
-    5.57
-
-5000ada
-    Pod : annoying-goat-10
-    Timestamp : 2025-05-06T16:46:56.506455
-    Pytorch version : 2.5.1+cu124
-    CUDA version : 12.4
-    Transformers version : 4.47.1
-    GPU : NVIDIA RTX 5000 Ada Generation
-    3.77
-
-a6000
-    Pod : mysterious-frog-79
-    Timestamp : 2025-05-07T04:41:00.165299
-    Pytorch version : 2.5.1+cu124
-    CUDA version : 12.4
-    Transformers version : 4.47.1
-    GPU : NVIDIA RTX A6000
-    3.05
+3090
+    Pod                     : cloudy-silkworm-63
+    Timestamp               : 2025-10-09T11:51:25.201872
+    Pytorch version         : 2.6.0+cu124
+    CUDA version            : 12.4
+    Transformers version    : 4.51.3
+    GPU                     : NVIDIA GeForce RTX 3090
+    1.39
 
 a5000
-    Pod : talented-hawk-22
-    Timestamp : 2025-05-09T15:35:06.434332
-    Pytorch version : 2.5.1+cu124
-    CUDA version : 12.4
-    Transformers version : 4.47.1
-    GPU : NVIDIA RTX A5000
-    3.02
+    Pod                     : troubled-okapi-57
+    Timestamp               : 2025-10-09T11:51:29.587613
+    Pytorch version         : 2.6.0+cu124
+    CUDA version            : 12.4
+    Transformers version    : 4.51.3
+    GPU                     : NVIDIA RTX A5000
+    1.37
+
+a6000
+    Pod                     : tame-ostrich-11
+    Timestamp               : 2025-10-09T11:51:25.780812
+    Pytorch version         : 2.6.0+cu124
+    CUDA version            : 12.4
+    Transformers version    : 4.51.3
+    GPU                     : NVIDIA RTX A6000
+    1.65
+
 -->
+
+## CPU and Memory
+
+When selecting a pod to launch, you can select the amount of CPU and Memory resoures allocated to your pod through
+the "size" of the pod (xs-xxl). Try to select a size that is appropriate for your workload to ensure that there
+are enough resources for everybody.
+
+| Size                      | CPU Cores    | Memory     |
+|---------------------------|-------------:|-----------:|
+| `xs` (Extra-Small)        |  1 CPU Core  |   1 GB RAM |
+| `sm` (Small)              |  2 CPU Cores |   8 GB RAM |
+| `md` (Medium)             |  2 CPU Cores |  16 GB RAM |
+| `lg` (Large)              |  4 CPU Cores |  32 GB RAM |
+| `xl` (Extra-Large)        |  8 CPU Cores |  64 GB RAM |
+| `xxl` (Extra-Extra-Large) | 16 CPU Cores | 128 GB RAM |
+
+
+Each node's CPU model depends on what was available when the node was added to the cluster. You can check which
+CPU your pod has access to by checking the [Cluster Usage Dashboard](http://usage.apps.os.dcs.gla.ac.uk/) or by running
+`cat /proc/cpuinfo | grep "model name" | head -1`. Below is a list of the CPUs currently on the cluster.
+
+| Model          | Vendor | Base Clock  | Boost Clock | Threads | Year |
+|----------------|--------|------------:|------------:|--------:|-----:|
+| `xeon-2620`    | Intel  | **2.1 GHz** |     3.0 GHz |      32 | 2016 |
+| `ryzen-3975wx` | AMD    | **3.5 GHz** |     4.7 GHz |      64 | 2020 |
+| `xeon-6244`    | Intel  | **3.6 GHz** |     4.4 GHz |      32 | 2019 |
+| `xeon-5222`    | Intel  | **3.8 GHz** |     3.9 GHz |      16 | 2019 |
+| `ryzen-5965wx` | AMD    | **3.8 GHz** |     4.5 GHz |      48 | 2022 |
+| `ryzen-3955wx` | AMD    | **3.9 GHz** |     4.3 GHz |      32 | 2020 |
+| `ryzen-5955wx` | AMD    | **4.0 GHz** |     4.5 GHz |      32 | 2022 |
+| `ryzen-7950x`  | AMD    | **4.5 GHz** |     5.7 GHz |      32 | 2022 |
