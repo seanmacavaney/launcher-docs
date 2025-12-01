@@ -16,11 +16,11 @@ in terms of speed and memory capacity.
 | `4090`    | **24 GB** |        **2.4** |          512 |     16,384 |    2.2 GHz |     2.5 GHz | 2022 |
 | `5000ada` | **32 GB** |        **1.5** |          400 |     12,800 |    1.1 GHz |     2.5 GHz | 2023 |
 | `a6000`   | **48 GB** |        **1.6** |          336 |     10,752 |    1.4 GHz |     1.8 GHz | 2020 |
+| `6000bw`  | **96 GB** |        **4.6** |          752 |     24,064 |    1.6 GHz |     2.6 GHz | 2025 |
 
 <!--
 | `2080ti`  | **11 GB** |       **?.??** |          544 |      4,352 |   1350 MHz |    1545 MHz | 2018 |
 | `5090`    | **32 GB** |       **?.??** |          512 |     16,384 |   2010 MHz |    2410 MHz | 2025 |
-| `6000bw`  | **96 GB** |       **?.??** |          752 |     24,064 |   1590 MHz |    2617 MHz | 2025 |
 -->
 
  - **Memory** is the amount of memory available on the GPU. This is important for large models, as
@@ -108,6 +108,14 @@ a6000
     GPU                     : NVIDIA RTX A6000
     1.65
 
+6000bw
+    Pod                     : N/A
+    Timestamp               : 2025-12-01T18:41:09.199349
+    Pytorch version         : 2.9.1+cu130
+    CUDA version            : 13.0
+    Transformers version    : 4.51.3
+    GPU                     : NVIDIA RTX PRO 6000 Blackwell Workstation Edition
+    4.59
 -->
 
 ## CPU and Memory
