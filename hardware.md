@@ -18,6 +18,7 @@ in terms of speed and memory capacity.
 | `a6000`   | **48 GB** |        **1.6** |          336 |     10,752 |    1.4 GHz |     1.8 GHz | 2020 |
 | `l40s`    | **48 GB** |        **2.1** |          ??? |     ??,??? |    ?.? GHz |     ?.? GHz | ???? |
 | `6000bw`  | **96 GB** |        **4.6** |          752 |     24,064 |    1.6 GHz |     2.6 GHz | 2025 |
+| `h100`    | **96 GB** |        **5.4** |          ??? |     ??,??? |    ?.? GHz |     ?.? GHz | ???? |
 
 <!--
 | `2080ti`  | **11 GB** |       **?.??** |          544 |      4,352 |   1350 MHz |    1545 MHz | 2018 |
@@ -126,6 +127,15 @@ l40s
     Transformers version    : 4.51.3
     GPU                     : NVIDIA RTX PRO 6000 Blackwell Workstation Edition
     4.59
+
+h100
+    Pod                     : login1.cognition.gla.alces.network
+    Timestamp               : 2025-12-02T17:31:09.214118
+    Pytorch version         : 2.9.1+cu130
+    CUDA version            : 13.0
+    Transformers version    : 4.51.3
+    GPU                     : NVIDIA H100 NVL
+    5.38
 -->
 
 ## CPU and Memory
