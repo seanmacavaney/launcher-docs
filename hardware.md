@@ -16,6 +16,7 @@ in terms of speed and memory capacity.
 | `4090`    | **24 GB** |        **2.4** |          512 |     16,384 |    2.2 GHz |     2.5 GHz | 2022 |
 | `5000ada` | **32 GB** |        **1.5** |          400 |     12,800 |    1.1 GHz |     2.5 GHz | 2023 |
 | `a6000`   | **48 GB** |        **1.6** |          336 |     10,752 |    1.4 GHz |     1.8 GHz | 2020 |
+| `l40s`    | **48 GB** |        **2.1** |          ??? |     ??,??? |    ?.? GHz |     ?.? GHz | ???? |
 | `6000bw`  | **96 GB** |        **4.6** |          752 |     24,064 |    1.6 GHz |     2.6 GHz | 2025 |
 
 <!--
@@ -107,6 +108,15 @@ a6000
     Transformers version    : 4.51.3
     GPU                     : NVIDIA RTX A6000
     1.65
+
+l40s
+    Pod                     : login1.cognition.gla.alces.network
+    Timestamp               : 2025-12-02T17:27:05.391800
+    Pytorch version         : 2.9.1+cu130
+    CUDA version            : 13.0
+    Transformers version    : 4.51.3
+    GPU                     : NVIDIA L40S
+    2.13
 
 6000bw
     Pod                     : N/A
