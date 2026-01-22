@@ -119,6 +119,15 @@ l40s
     GPU                     : NVIDIA L40S
     2.13
 
+5090:
+    Pod                     : N/A
+    Timestamp               : 2026-01-22T12:54:59.791510
+    Pytorch version         : 2.8.0+cu128
+    CUDA version            : 12.8
+    Transformers version    : 4.57.6
+    GPU                     : NVIDIA GeForce RTX 5090
+    3.20
+
 6000bw
     Pod                     : N/A
     Timestamp               : 2025-12-01T18:41:09.199349
