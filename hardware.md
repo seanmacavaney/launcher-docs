@@ -15,6 +15,7 @@ in terms of speed and memory capacity.
 | `3090`    | **24 GB** |        **1.4** |          328 |     10,496 |    1.3 GHz |     1.6 GHz | 2020 |
 | `4090`    | **24 GB** |        **2.4** |          512 |     16,384 |    2.2 GHz |     2.5 GHz | 2022 |
 | `5000ada` | **32 GB** |        **1.5** |          400 |     12,800 |    1.1 GHz |     2.5 GHz | 2023 |
+| `5090`    | **32 GB** |        **3.2** |          512 |     16,384 |   2010 MHz |    2410 MHz | 2025 |
 | `a6000`   | **48 GB** |        **1.6** |          336 |     10,752 |    1.4 GHz |     1.8 GHz | 2020 |
 | `l40s`    | **48 GB** |        **2.1** |          ??? |     ??,??? |    ?.? GHz |     ?.? GHz | ???? |
 | `6000bw`  | **96 GB** |        **4.6** |          752 |     24,064 |    1.6 GHz |     2.6 GHz | 2025 |
@@ -22,7 +23,6 @@ in terms of speed and memory capacity.
 
 <!--
 | `2080ti`  | **11 GB** |       **?.??** |          544 |      4,352 |   1350 MHz |    1545 MHz | 2018 |
-| `5090`    | **32 GB** |       **?.??** |          512 |     16,384 |   2010 MHz |    2410 MHz | 2025 |
 -->
 
  - **Memory** is the amount of memory available on the GPU. This is important for large models, as
