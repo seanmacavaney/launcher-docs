@@ -8,7 +8,7 @@ IDA and OKD clusters and uses your normal `oc` login, so there is no separate pa
 Install it with pip:
 
 ```bash
-$ pip install https://launcher.apps.os.dcs.gla.ac.uk/static/launcher_cli-0.1.0-py3-none-any.whl
+$ pip install https://launcher.apps.os.dcs.gla.ac.uk/static/launcher_cli-0.1.1-py3-none-any.whl
 ```
 
 Log in to the cluster as usual (this is needed about once a day), then trust the launcher's
@@ -46,7 +46,13 @@ $ launcher notebook a6000-lg
 $ launcher run 3090-md ./job.sh        # runs a script, then the pod ends
 ```
 
-See what is free right now with `launcher available`.
+Request several GPUs with `--gpus` (up to 8, if your account allows it):
+
+```bash
+$ launcher launch a6000-lg --gpus 2
+```
+
+See what is free right now with `launcher available`, or `launcher available --gpus 2` for pods with two GPUs.
 
 ## Other Commands
 
