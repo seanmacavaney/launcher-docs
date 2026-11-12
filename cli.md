@@ -1,79 +1,76 @@
 # Launcher CLI
 
-<div class="alert alert-warning">
-  The CLI is still being ported over to the new cluster. Please use the web GUI for now.
-</div>
-
-<!--
-The Launcher Command Line Interface (CLI) allows you to run launcher commands without the web GUI.
+The `launcher` command lets you launch and manage pods without the web GUI. It works on both the
+IDA and OKD clusters and uses your normal `oc` login, so there is no separate password.
 
 ## Getting Started
 
-You can install the Launcher CLI using the following command:
+Install it with pip:
 
 ```bash
-$ pip install http://launcher.ida.dcs.gla.ac.uk/static/ida-0.0.1-py3-none-any.whl
+$ pip install https://launcher.apps.os.dcs.gla.ac.uk/static/launcher_cli-0.1.0-py3-none-any.whl
 ```
 
-You'll also need to log in using your cluster credentials:
+Log in to the cluster as usual (this is needed about once a day), then trust the launcher's
+certificate once:
 
 ```bash
-$ ida login
-Cluster Username: myusername
-Cluster Password: 
+$ oc login ...
+$ launcher trust
+launcher.apps.os.dcs.gla.ac.uk
+  SHA-256 52:9b:3e:...
+Trust this certificate? [y/N] y
 ```
 
-Tip: you can use `ida login --save` to avoid re-entering your credentials every day.
+To use the OKD cluster, pick its kubeconfig context: `launcher --context <context> list`.
 
 ## Launching a Pod
 
-You can launch a pod using the `ida launch` command:
-
 ```bash
-$ ida launch
+$ launcher launch
 awesome-coo-27
-✅ Pod Created: https://console.ida.dcs.gla.ac.uk/k8s/ns/myusername/pods/awesome-coo-27
-✅ Pod Scheduled: idagpu-14.dcs.gla.ac.uk
-✅ Container Started             
+✓ Pod Created: https://console.../pods/awesome-coo-27
+✓ Pod Scheduled: idagpu-14
+✓ Container Started
 OKD Terminal:
-  https://console.ida.dcs.gla.ac.uk/k8s/ns/myusername/pods/awesome-coo-27/terminal
+  https://console.../pods/awesome-coo-27/terminal
 SSH Access:
-  ssh awesome-coo-27.ida
+  ssh awesome-coo-27.os
 ```
 
-You can also specify the node type, timeout, and name. See `ida launch --help` for more details.
+Choose the hardware (`GPU-size`, e.g. `3090-lg`), timeout and name:
 
 ```bash
-$ ida launch --help
-usage: ida launch [-h] [--timeout t] [--name n] [type]
-
-positional arguments:
-  type               [default=cpu-xs] Hardware specification of the pod, e.g., cpu-md or 3090-lg.
-
-optional arguments:
-  -h, --help         show this help message and exit
-  --timeout t, -t t  [default=10m] Auto-timeout limit, either 10m or 2h.
-  --name n, -n n     Name of the pod. If omitted, auto-generates a name.
+$ launcher launch 3090-md --timeout 2h --name my-pod
+$ launcher notebook a6000-lg
+$ launcher run 3090-md ./job.sh        # runs a script, then the pod ends
 ```
+
+See what is free right now with `launcher available`.
 
 ## Other Commands
 
-There are other commands available too. You can check them out with `ida --help`:
+| Command | What it does |
+|---------|--------------|
+| `launcher list` | list your pods |
+| `launcher delete NAME...` | delete pods |
+| `launcher note NAME "text"` | set the note shown next to a pod |
+| `launcher extend NAME` | reset a pod's idle timer |
+| `launcher logs NAME [-f]` | show logs (uses `oc`/`kubectl`) |
+| `launcher exec NAME -- CMD` | run a command in a pod, or open a shell |
+| `launcher whoami` | show the cluster, user and namespace in use |
+
+Cognition pods are not supported; use the web GUI for those.
+
+## Scripts and AI Agents
+
+Every command accepts `--json`. Output is then exactly one JSON document on stdout, nothing ever
+prompts, and failures are a JSON object `{"error": ..., "message": ...}` with a non-zero exit code
+(3 = not logged in, 4 = no such pod, 5 = cannot connect or certificate not trusted, 6 = pod did
+not become ready). The first connection under `--json` fails with the certificate's fingerprint;
+run `launcher trust --yes` once you have checked it, or pass `--trust-cert`.
 
 ```bash
-$ ida --help
-usage: ida [-h] {login,logout,available,launch,run,notebook,delete,list} ...
-
-positional arguments:
-  {login,logout,available,launch,run,notebook,delete,list}
-    available           Prints the number of available pod types.
-    launch              Launches a new pod in console mode.
-    run                 Launches a new pod in script mode.
-    notebook            Launches a new pod in notebook mode.
-    delete              Deletes the specified pods.
-    list                Lists your pods.
-
-optional arguments:
-  -h, --help            show this help message and exit
+$ launcher available --json | jq '.types[] | select(.allowed and .available > 0)'
+$ launcher run --json 3090-md ./job.sh | jq -r .name
 ```
--->
