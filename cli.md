@@ -8,7 +8,7 @@ IDA and OKD clusters and uses your normal `oc` login, so there is no separate pa
 Install it with pip:
 
 ```bash
-$ pip install https://launcher.apps.os.dcs.gla.ac.uk/static/launcher_cli-0.1.1-py3-none-any.whl
+$ pip install https://launcher.apps.os.dcs.gla.ac.uk/static/launcher_cli-0.1.2-py3-none-any.whl
 ```
 
 Log in to the cluster as usual (this is needed about once a day), then trust the launcher's
@@ -44,7 +44,10 @@ Choose the hardware (`GPU-size`, e.g. `3090-lg`), timeout and name:
 $ launcher launch 3090-md --timeout 2h --name my-pod
 $ launcher notebook a6000-lg
 $ launcher run 3090-md ./job.sh        # runs a script, then the pod ends
+$ launcher run 3090-md ./job.sh --lr 0.01 --out "my run"   # everything after the script is passed to it as $1, $2, ...
 ```
+
+Put launcher's own options (such as `--gpus` or `--name`) before the script name.
 
 Request several GPUs with `--gpus` (up to 8, if your account allows it):
 
