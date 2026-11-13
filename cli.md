@@ -22,9 +22,12 @@ You need Python 3.8 or newer. Install the CLI with pip (a virtual environment or
 is fine):
 
 ```bash
-$ pip install https://launcher.apps.os.dcs.gla.ac.uk/static/launcher_cli-0.1.2-py3-none-any.whl
+$ pip install --trusted-host launcher.apps.os.dcs.gla.ac.uk https://launcher.apps.os.dcs.gla.ac.uk/static/launcher_cli-0.1.2-py3-none-any.whl
 $ launcher --version
 ```
+
+`--trusted-host` is needed because the launcher uses a self-signed certificate (see step 4), which
+pip would otherwise reject with `certificate is not trusted`.
 
 If you get `command not found`, pip put `launcher` in a directory that is not on your `PATH`
 (often `~/.local/bin`). Add that directory to your `PATH`, or run it with `python -m launcher_cli`.
