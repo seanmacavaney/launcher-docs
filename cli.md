@@ -22,7 +22,7 @@ You need Python 3.8 or newer. Install the CLI with pip (a virtual environment or
 is fine):
 
 ```bash
-$ pip install --trusted-host launcher.apps.os.dcs.gla.ac.uk https://launcher.apps.os.dcs.gla.ac.uk/static/launcher_cli-0.1.2-py3-none-any.whl
+$ pip install --trusted-host launcher.apps.os.dcs.gla.ac.uk https://launcher.apps.os.dcs.gla.ac.uk/static/launcher_cli-0.1.4-py3-none-any.whl
 $ launcher --version
 ```
 
@@ -130,6 +130,7 @@ See what is free right now with `launcher available`, or `launcher available --g
 | `launcher logs NAME [-f]` | show logs (uses `oc`/`kubectl`) |
 | `launcher exec NAME -- CMD` | run a command in a pod, or open a shell |
 | `launcher whoami` | show the cluster, user and namespace in use |
+| `launcher volume ...` | create and share your own volumes, see below |
 
 `launcher exec NAME` with no command opens a bash shell in the pod. Run `launcher <command> --help`
 for every option.
@@ -158,6 +159,24 @@ Please delete pods you no longer need, and use one GPU unless you really need mo
 | no such pod | Check the name with `launcher list`. The pod may have hit its idle timeout. |
 | pod did not become ready | Probably no free hardware of that type. Try another type from `launcher available`. |
 | talking to the wrong cluster | Run `launcher whoami`, then `oc config use-context` to switch. |
+
+## Shared Volumes
+
+You can create up to three volumes of your own (100Gi each, on os-data-03) and share them with other
+users. The person you invite must accept before anything is created for them, and everyone with access
+can read, write and delete everything in the volume. You own the volume: only you can invite, remove
+people or delete it.
+
+```bash
+$ launcher volume create data          # mounted at /mnt/data in your pods
+$ launcher volume invite data bob      # use their username (namespace)
+$ launcher volume list                 # yours, shared with you, and invitations
+$ launcher volume accept alice.data    # as bob
+$ launcher volume revoke data bob      # as alice
+$ launcher volume delete data          # remove everyone first; files are kept aside, not erased
+```
+
+The same actions are on the Storage page under Settings in the web GUI, where invitations also show up.
 
 ## Scripts and AI Agents
 
